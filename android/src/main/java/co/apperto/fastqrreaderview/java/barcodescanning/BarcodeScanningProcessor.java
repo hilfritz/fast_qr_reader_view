@@ -13,8 +13,9 @@
 // limitations under the License.
 package co.apperto.fastqrreaderview.java.barcodescanning;
 
-import androidx.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.common.util.ArrayUtils;
 import com.google.android.gms.tasks.Task;
@@ -52,10 +53,15 @@ public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseV
         int[] additionalFormats = Arrays.copyOfRange(ArrayUtils.toPrimitiveArray(reqFormats), 1, reqFormats.size());
 
 
-        detector = FirebaseVision.getInstance().getVisionBarcodeDetector(new FirebaseVisionBarcodeDetectorOptions.Builder()
-                // setBarcodeFormats is quite weird. I have to do all of these just to pass a bunch of ints
-                .setBarcodeFormats(ArrayUtils.toPrimitiveArray(reqFormats)[0], additionalFormats)
-                .build());
+//        FirebaseVisionBarcodeDetectorOptions firebaseOptions = new FirebaseVisionBarcodeDetectorOptions.Builder()
+//                // setBarcodeFormats is quite weird. I have to do all of these just to pass a bunch of ints
+//                .setBarcodeFormats(ArrayUtils.toPrimitiveArray(reqFormats)[0], additionalFormats)
+//                .build();
+
+        FirebaseVisionBarcodeDetectorOptions firebaseOptions =  new FirebaseVisionBarcodeDetectorOptions.Builder()
+             .setBarcodeFormats(FirebaseVisionBarcode.FORMAT_QR_CODE)
+             .build();
+        detector = FirebaseVision.getInstance().getVisionBarcodeDetector(firebaseOptions);
     }
 
     @Override
@@ -79,8 +85,8 @@ public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseV
             @NonNull FrameMetadata frameMetadata) { //,
 //      @NonNull GraphicOverlay graphicOverlay) {
 //    graphicOverlay.clear();
-
-        for (int i = 0; i < barcodes.size(); ++i) {
+        int size = barcodes.size();
+        for (int i = 0; i < size; ++i) {
             FirebaseVisionBarcode barcode = barcodes.get(i);
             Log.d("BARCODE!", barcode.getRawValue());
             callback.onCodeScanned(barcode);

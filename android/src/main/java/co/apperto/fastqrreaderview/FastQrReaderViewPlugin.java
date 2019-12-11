@@ -395,18 +395,18 @@ public class FastQrReaderViewPlugin implements MethodCallHandler {
             // enum CodeFormat { codabar, code39, code93, code128, ean8, ean13, itf, upca, upce, aztec, datamatrix, pdf417, qr }
 
             Map<String, Integer> map = new HashMap<>();
-            map.put("codabar", FirebaseVisionBarcode.FORMAT_CODABAR);
-            map.put("code39", FirebaseVisionBarcode.FORMAT_CODE_39);
-            map.put("code93", FirebaseVisionBarcode.FORMAT_CODE_93);
-            map.put("code128", FirebaseVisionBarcode.FORMAT_CODE_128);
-            map.put("ean8", FirebaseVisionBarcode.FORMAT_EAN_8);
-            map.put("ean13", FirebaseVisionBarcode.FORMAT_EAN_13);
-            map.put("itf", FirebaseVisionBarcode.FORMAT_ITF);
-            map.put("upca", FirebaseVisionBarcode.FORMAT_UPC_A);
-            map.put("upce", FirebaseVisionBarcode.FORMAT_UPC_E);
-            map.put("aztec", FirebaseVisionBarcode.FORMAT_AZTEC);
-            map.put("datamatrix", FirebaseVisionBarcode.FORMAT_DATA_MATRIX);
-            map.put("pdf417", FirebaseVisionBarcode.FORMAT_PDF417);
+//            map.put("codabar", FirebaseVisionBarcode.FORMAT_CODABAR);
+//            map.put("code39", FirebaseVisionBarcode.FORMAT_CODE_39);
+//            map.put("code93", FirebaseVisionBarcode.FORMAT_CODE_93);
+//            map.put("code128", FirebaseVisionBarcode.FORMAT_CODE_128);
+//            map.put("ean8", FirebaseVisionBarcode.FORMAT_EAN_8);
+//            map.put("ean13", FirebaseVisionBarcode.FORMAT_EAN_13);
+//            map.put("itf", FirebaseVisionBarcode.FORMAT_ITF);
+//            map.put("upca", FirebaseVisionBarcode.FORMAT_UPC_A);
+//            map.put("upce", FirebaseVisionBarcode.FORMAT_UPC_E);
+//            map.put("aztec", FirebaseVisionBarcode.FORMAT_AZTEC);
+//            map.put("datamatrix", FirebaseVisionBarcode.FORMAT_DATA_MATRIX);
+//            map.put("pdf417", FirebaseVisionBarcode.FORMAT_PDF417);
             map.put("qr", FirebaseVisionBarcode.FORMAT_QR_CODE);
 
 

@@ -22,11 +22,12 @@ import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresPermission;
 import android.util.Log;
 import android.view.Surface;
 import android.view.WindowManager;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
 
 import com.google.android.gms.common.images.Size;
 
@@ -342,7 +343,8 @@ public class CameraSource {
    */
   private static int getIdForRequestedCamera(int facing) {
     CameraInfo cameraInfo = new CameraInfo();
-    for (int i = 0; i < Camera.getNumberOfCameras(); ++i) {
+    int numberOfCameras = Camera.getNumberOfCameras();
+    for (int i = 0; i < numberOfCameras; ++i) {
       Camera.getCameraInfo(i, cameraInfo);
       if (cameraInfo.facing == facing) {
         return i;
